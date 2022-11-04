@@ -10,6 +10,8 @@ import java.util.List;
 
 public class JuegoViewModel extends AndroidViewModel {
 
+    MutableLiveData<Juego> juegoSeleccionado = new MutableLiveData<>();
+
     JuegoRepositorio juegoRepositorio;
 
     MutableLiveData<List<Juego>> listJuegoMutableLiveData = new MutableLiveData<>();
@@ -51,5 +53,13 @@ public class JuegoViewModel extends AndroidViewModel {
                 listJuegoMutableLiveData.setValue(juegos);
             }
         });
+    }
+
+    void seleccionar(Juego juego){
+        juegoSeleccionado.setValue(juego);
+    }
+
+    MutableLiveData<Juego> seleccionado(){
+        return juegoSeleccionado;
     }
 }
